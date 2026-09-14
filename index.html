@@ -126,7 +126,7 @@
     background-repeat:no-repeat;
     background-position:0% center;
     background-size:auto 100%;
-    animation:heroFlow 75s ease-in-out infinite alternate;
+    animation:heroFlow 37.5s ease-in-out infinite alternate;
   }
   @keyframes heroFlow{
     from{background-position:0% center;}
@@ -278,6 +278,13 @@
     background:var(--deep); color:var(--gold-oncard);
     display:inline-block; padding:7px 12px; border-radius:999px;
     letter-spacing:.01em;
+  }
+  .card-portrait{
+    margin-top:18px; border-radius:4px; overflow:hidden;
+    box-shadow:0 4px 14px rgba(20,45,70,.18);
+  }
+  .card-portrait img{
+    width:100%; height:auto; display:block; object-fit:cover;
   }
 
   /* ---------- addendum (고증노트) ---------- */
@@ -558,24 +565,6 @@
     </div>
   </section>
 
-  <section class="plate-page" id="plate-7">
-    <div class="era-head">
-      <div class="era-mark" aria-hidden="true">人</div>
-      <div class="era-titles">
-        <span class="era-eyebrow">附圖 七 · 人物</span>
-        <h2>울산을 만든 사람들 · 21인</h2>
-        <p class="era-desc">거도부터 심완구까지 — 7개 시대를 가로지르는 21인의 초상</p>
-      </div>
-    </div>
-    <div class="plate-solo-wrap">
-      <div class="plate">
-        <div class="plate-frame plate-frame-solo">
-          <img src="all-in-one.png" alt="울산을 만든 사람들 21인 — 전체 인물 초상 모음">
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== 1. 고대(삼국시대) ===== -->
   <section id="era-1" class="era" data-era="1">
     <div class="era-head">
@@ -598,6 +587,9 @@
         </div>
         <p class="bio">『삼국사기』 열전에 전하는 신라 변경 관리. '마숙(馬叔)' 놀이로 위장해 군마를 훈련시킨 뒤 기습하여 우시산국(현 울주군 웅촌·온양 일대)을 병합했다.</p>
         <span class="tag">울산, 신라 영토로 편입되다</span>
+        <div class="card-portrait">
+          <img src="portraits/gedo.jpg" alt="거도 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -609,6 +601,9 @@
         </div>
         <p class="bio">즉위년(647)에 연호를 '태화(太和)'로 고쳤다. 이 연호와 자장율사가 울산에 세운 태화사(太和寺)에서 오늘날 '태화강' 지명이 유래한다.</p>
         <span class="tag">태화강·태화루 지명의 뿌리</span>
+        <div class="card-portrait">
+          <img src="portraits/jinduk.jpg" alt="진덕여왕 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -620,6 +615,9 @@
         </div>
         <p class="bio">개운포(울산) 순행 중 동해용의 아들 처용을 만난 설화가 『삼국유사』에 전한다. 처용가·처용무의 배경이 되어 울산의 대표 설화로 이어진다.</p>
         <span class="tag">처용설화의 무대, 개운포</span>
+        <div class="card-portrait">
+          <img src="portraits/hengang.jpg" alt="헌강왕 초상">
+        </div>
       </article>
     </div>
   </section>
@@ -646,6 +644,9 @@
         </div>
         <p class="bio">울산 학성의 호족, 신학성장군. 고려 태조에 귀부하여 흥려부 성립에 공을 세웠다. 울산김씨·울산박씨 계통의 연원이 된다.</p>
         <span class="tag">재지 호족 — 임명직 개념 이전</span>
+        <div class="card-portrait">
+          <img src="portraits/yunyung.jpg" alt="박윤웅 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -657,6 +658,9 @@
         </div>
         <p class="bio">청주 정씨, 좌사간대부 역임. 시정을 비판한 상소 후 참언을 입어 울주로 유배되었고, 울산을 소재로 한 시를 다수 남겼다.</p>
         <span class="tag">울주 유배(연도 미상)</span>
+        <div class="card-portrait">
+          <img src="portraits/jungpo.jpg" alt="정포 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -668,6 +672,9 @@
         </div>
         <p class="bio">성리학자, 문하시중. 이인임의 친원 외교를 비판하다 언양에 유배(1375~1377, 약 2년). 작괘천·반구정 등에 자취를 남겼다.</p>
         <span class="tag">언양현 유배, 약 2년</span>
+        <div class="card-portrait">
+          <img src="portraits/mongju.jpg" alt="정몽주 초상">
+        </div>
       </article>
     </div>
   </section>
@@ -694,6 +701,9 @@
         </div>
         <p class="bio">울산 향리 출신. 44년간 40여 회 대일 사행을 통해 포로 667명을 쇄환하고 계해약조 체결을 주도한, 조선 최초의 전문 외교관이다.</p>
         <span class="tag">울산 향리(記官) → 외교관</span>
+        <div class="card-portrait">
+          <img src="portraits/leeye.jpg" alt="이예 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -705,6 +715,9 @@
         </div>
         <p class="bio">1474년 문과 급제 후 홍문관교리·충청도관찰사·사헌부대사헌·형조판서를 지낸 문신. 이예의 손녀사위가 되어 울산에 정착했으며, 『신증동국여지승람』 울산군 ‘우거(寓居)’조에 이름이 전한다.</p>
         <span class="tag">이예 가문의 사위 — 울산 우거(寓居) 문신</span>
+        <div class="card-portrait">
+          <img src="portraits/heeji.jpg" alt="양희지 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -716,6 +729,9 @@
         </div>
         <p class="bio">함양군수·선산부사를 지낸 사림파의 영수. 경상좌도병마평사로 재임하며 태화루의 풍광을 노래한 시를 남겨, 정포·양희지 등과 함께 태화루 시문의 계보를 이었다.</p>
         <span class="tag">경상좌도병마평사 재임 중 태화루 시 남김</span>
+        <div class="card-portrait">
+          <img src="portraits/jongjik.jpg" alt="김종직 초상">
+        </div>
       </article>
     </div>
   </section>
@@ -742,6 +758,9 @@
         </div>
         <p class="bio">호는 송호(松壕). 부친을 따라 울산에 정착한 선비로, 임진왜란 발발 2년 전인 1590년부터 벗들과 왜적 침입에 대비책을 논의했고, 전란이 일어나자 창의(倡義)하여 의병 활동에 나섰다.</p>
         <span class="tag">※가문 문헌(『송호유집』) 전승 — 학술 검증 필요</span>
+        <div class="card-portrait">
+          <img src="portraits/ryujung.jpg" alt="류정 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -753,6 +772,9 @@
         </div>
         <p class="bio">1592년 울산 가군수로 부임해 흩어진 백성을 모아 관군을 재건하고, 울산성 전투에서 권율을 도와 큰 전공을 세워 정식 울산군수가 되었다.</p>
         <span class="tag">울산 가군수→정식 군수 1592~1599년경</span>
+        <div class="card-portrait">
+          <img src="portraits/taehuh.jpg" alt="김태허 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -764,6 +786,9 @@
         </div>
         <p class="bio">울산 남목동 출신. 의병을 모아 주사장(舟師長)으로 김태허를 도와 육전·수전에서 전공을 세웠다. 이후 다대포첨사·부산진첨절제사 역임.</p>
         <span class="tag">울산 의병 주사장, 선무원종공신 1등</span>
+        <div class="card-portrait">
+          <img src="portraits/yinchung.jpg" alt="서인충 초상">
+        </div>
       </article>
     </div>
   </section>
@@ -790,6 +815,9 @@
         </div>
         <p class="bio">울산 박씨. 부친 박계숙과 함께 부자 2대에 걸친 종군일기 『부북일기』를 남겨 17세기 변방 군관의 생활상을 전한다.</p>
         <span class="tag">함경도 회령 군관(1644~46)</span>
+        <div class="card-portrait">
+          <img src="portraits/chiumun.jpg" alt="박취문 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -801,6 +829,9 @@
         </div>
         <p class="bio">역관이자 위항시인. 울산감목관으로 재임(1719~1722년경)하며 울산의 목장과 바닷가 생활상을 담은 시 120여 수를 남겼다.</p>
         <span class="tag">위항문학의 선구, 『해동유주』</span>
+        <div class="card-portrait">
+          <img src="portraits/seitae.jpg" alt="홍세태 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -812,6 +843,9 @@
         </div>
         <p class="bio">안동 권씨, 대사간·대사헌 역임. 울산부사(1735~1738)로 구강서원을 중건했으며, 이황을 사숙한 영남 학자였다.</p>
         <span class="tag">울산부사 재임 약 3~4년</span>
+        <div class="card-portrait">
+          <img src="portraits/sangil.jpg" alt="권상일 초상">
+        </div>
       </article>
     </div>
   </section>
@@ -838,6 +872,9 @@
         </div>
         <p class="bio">부곡 출신 농촌 지식인. 21세부터 84세로 별세할 때까지 64년간 거의 빠짐없이 한문 일기를 남겼다. 곡물 가격과 강우·풍흉 기록이 상세해 근대 울산의 생활사·기후사를 보여주는 귀중한 사료다.</p>
         <span class="tag">『심원권일기』 저술, 64년 생활일기(1870~1933)</span>
+        <div class="card-portrait">
+          <img src="portraits/wonkyun.jpg" alt="심원권 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -849,6 +886,9 @@
         </div>
         <p class="bio">발트 독일계 러시아 귀족. 1899년 대한제국 정부와 포경 이권 계약을 체결하고 장생포(울산만)에 태평양포경회사를 세워, 반구천 암각화의 고래잡이 전통이 이어진 한반도 근대 포경업의 첫 장을 열었다.</p>
         <span class="tag">관직 아님 — 러시아 포경 사업가</span>
+        <div class="card-portrait">
+          <img src="portraits/keyserling.jpg" alt="헨리 케이제를링 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -860,6 +900,9 @@
         </div>
         <p class="bio">울산 개화파 선각자. 경남일보를 창립하고 일신여자고등보통학교 설립기금을 출연했으며, 임시정부에 독립운동 자금을 지원했다.</p>
         <span class="tag">관직 아님 — 민간 유지</span>
+        <div class="card-portrait">
+          <img src="portraits/hongjo.jpg" alt="김홍조 초상">
+        </div>
       </article>
     </div>
   </section>
@@ -886,6 +929,9 @@
         </div>
         <p class="bio">병영 출신 한글학자. 조선어학회 사건으로 옥고를 치렀고, 광복 후 문교부 편수국장으로 교과서 편찬을 지도했다.</p>
         <span class="tag">관직 아님 — 학자·행정가</span>
+        <div class="card-portrait">
+          <img src="portraits/hyunbai.jpg" alt="최현배 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -897,6 +943,9 @@
         </div>
         <p class="bio">경남도 상공과장 출신. 1962년 울산시 승격의 초대 시장으로 부임하여, 이후 4대 시장도 지냈다.</p>
         <span class="tag">초대·4대 울산시장</span>
+        <div class="card-portrait">
+          <img src="portraits/sungsun.jpg" alt="홍승순 초상">
+        </div>
       </article>
       <article class="card">
         <div class="card-head">
@@ -908,6 +957,9 @@
         </div>
         <p class="bio">12·13대 국회의원. 민선 초대 울산시장(1995)으로 1997년 광역시 승격을 이끌었고, 초대·2대 울산광역시장을 지냈다.</p>
         <span class="tag">초대·2대 울산광역시장</span>
+        <div class="card-portrait">
+          <img src="portraits/wangu.jpg" alt="심완구 초상">
+        </div>
       </article>
     </div>
   </section>
