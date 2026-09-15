@@ -135,6 +135,36 @@
   @media (prefers-reduced-motion: reduce){
     .hero{animation:none; background-position:22% center;}
   }
+
+  .sound-toggle{
+    position:absolute; top:28px; right:28px; z-index:3;
+    width:52px; height:52px; border-radius:50%;
+    background:rgba(20,39,58,.55); backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    border:1px solid var(--gold-soft);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; color:var(--gold-oncard);
+    transition:background .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .sound-toggle:hover{background:rgba(20,39,58,.8); border-color:var(--gold);}
+  .sound-toggle:active{transform:scale(.94);}
+  .sound-toggle svg{width:20px; height:20px;}
+  .sound-toggle .icon-pause{display:none;}
+  .sound-toggle.playing .icon-play{display:none;}
+  .sound-toggle.playing .icon-pause{display:block;}
+  .sound-toggle-label{
+    position:absolute; top:86px; right:28px; z-index:3;
+    font-family:var(--font-ui); font-size:11px; color:var(--ink-2);
+    letter-spacing:.04em; opacity:.75;
+  }
+  @media (max-width:680px){
+    .sound-toggle{top:16px; right:16px; width:44px; height:44px;}
+    .sound-toggle svg{width:17px; height:17px;}
+    .sound-toggle-label{top:66px; right:16px; font-size:10px;}
+  }
+  @media print{
+    .sound-toggle, .sound-toggle-label{display:none;}
+  }
   .hero-scrim{
     position:absolute; inset:0; z-index:1; pointer-events:none;
     background:linear-gradient(100deg,
@@ -444,6 +474,12 @@
   <header class="hero">
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-seal" aria-hidden="true">蔚山</div>
+    <button class="sound-toggle" id="soundToggle" type="button" aria-label="배경음악 재생">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <span class="sound-toggle-label">배경음악</span>
+    <audio id="bgm" src="audio/hero-theme.mp3" loop preload="none"></audio>
     <div class="hero-content">
       <p class="eyebrow">은월봉 샌님(pyarcher.netlify.app)</p>
       <h1>울산을 만든 사람들</h1>
@@ -481,7 +517,7 @@
       <div class="era-titles">
         <span class="era-eyebrow">附圖 二 · 史料</span>
         <h2>태화 울산</h2>
-        <p class="era-desc">太和 · 정원박람회 테마 개념도</p>
+        <p class="era-desc">울산 太和 개념도</p>
       </div>
     </div>
     <div class="plate-solo-wrap">
@@ -499,13 +535,13 @@
       <div class="era-titles">
         <span class="era-eyebrow">附圖 三 · 史料</span>
         <h2>울산도호부</h2>
-        <p class="era-desc">1872년 지방지도</p>
+        <p class="era-desc">18세기 해동지도</p>
       </div>
     </div>
     <div class="plate-solo-wrap">
       <div class="plate">
         <div class="plate-frame plate-frame-solo">
-          <img src="oldmap1.jpg" alt="1872년 지방지도 — 울산도호부">
+          <img src="oldmap1.jpg" alt="18세기 해동지도 — 울산도호부">
         </div>
       </div>
     </div>
@@ -517,13 +553,13 @@
       <div class="era-titles">
         <span class="era-eyebrow">附圖 四 · 史料</span>
         <h2>언양현</h2>
-        <p class="era-desc">1872년 지방지도</p>
+        <p class="era-desc">18세기 해동지도</p>
       </div>
     </div>
     <div class="plate-solo-wrap">
       <div class="plate">
         <div class="plate-frame plate-frame-solo">
-          <img src="oldmap2.jpg" alt="1872년 지방지도 — 언양현">
+          <img src="oldmap2.jpg" alt="18세기 해동지도 — 언양현">
         </div>
       </div>
     </div>
@@ -985,7 +1021,7 @@
 
   <footer>
     <span class="brand">蔚山 · 울산을 만든 사람들</span>
-    <span class="meta">은월봉 샌님(pyarcher.netlify.app) · 7개 시대 21인 · 1차 정리본</span>
+    <span class="meta">은월봉 샌님(pyarcher.netlify.app) · 7개 시대 21인</span>
   </footer>
 
 </div>
@@ -1040,6 +1076,23 @@
   totop.addEventListener('click', function(){
     window.scrollTo({top:0, behavior:'smooth'});
   });
+
+  /* 표지 배경음악 재생/정지 토글 */
+  var soundBtn = document.getElementById('soundToggle');
+  var bgm = document.getElementById('bgm');
+  if (soundBtn && bgm){
+    soundBtn.addEventListener('click', function(){
+      if (bgm.paused){
+        bgm.play().catch(function(){ /* 재생 실패 시 조용히 무시 */ });
+        soundBtn.classList.add('playing');
+        soundBtn.setAttribute('aria-label', '배경음악 정지');
+      } else {
+        bgm.pause();
+        soundBtn.classList.remove('playing');
+        soundBtn.setAttribute('aria-label', '배경음악 재생');
+      }
+    });
+  }
 
   /* 클릭으로 다음 섹션 이동 (스크롤은 그대로 유지) */
   var pageStops = Array.prototype.slice.call(
